@@ -1,19 +1,19 @@
 {
     "home": {
-        "title": "¡Bienvenido, Java Hipster!",
-        "subtitle": "Esta es su página de inicio",
+        "title": "Bienvenido a Saturno",
+        "subtitle": "Sistema de autogestión de turnos.",
         "logged": {
-            "message": "Está conectado como \"{{username}}\"."
+            "message": "Has iniciado sesión con \"{{username}}\"."
         },
-        "question": "Si tiene preguntas sobre JHipster:",
+        "question": "Si tienes alguna duda o deseas contactarnos:",
         "link": {
-            "homepage": "Página de inicio de JHipster",
-            "stackoverflow": "JHipster en Stack Overflow",
-            "bugtracker": "JHipster seguimiento de errores",
-            "chat": "Sala de chat pública de JHipster",
-            "follow": "contacto @java_hipster en Twitter"
+            "homepage": "Homepage",
+            "stackoverflow": "Stack Overflow",
+            "bugtracker": "bug tracker",
+            "chat": "public chat room",
+            "follow": "follow on Twitter"
         },
-        "like": "Si te gusta JHipster, danos una estrella en",
+        "like": "Realizado en JHipster.",
         "github": "GitHub"
     }
 }

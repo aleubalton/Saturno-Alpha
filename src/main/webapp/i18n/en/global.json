@@ -1,6 +1,6 @@
 {
     "global": {
-        "title": "Jhipster",
+        "title": "Saturno",
         "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
         "menu": {
             "home": "Home",
@@ -8,7 +8,7 @@
             "entities": {
                 "main": "Entities",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
-            },
+             },
             "account": {
                 "main": "Account",
                 "settings": "Settings",
@@ -46,13 +46,13 @@
         "messages": {
             "info": {
                 "authenticated": {
-                    "prefix": "If you want to ",
+                    "prefix": "If you already have an user, ",
                     "link": "sign in",
-                    "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
+                    "suffix": " for more options."
                 },
                 "register": {
                     "noaccount": "You don't have an account yet?",
-                    "link": "Register a new account"
+                    "link": "Register a new account!"
                 }
             },
             "error": {
@@ -82,7 +82,7 @@
             "id": "ID"
         },
         "ribbon": {
-            "dev":"Development"
+            "dev":"DEVELOPMENT"
         },
         "item-count": "Showing {{first}} - {{second}} of {{total}} items."
     },
@@ -129,5 +129,5 @@
         "emailexists": "Email is already in use!",
         "idexists": "A new {{ entityName }} cannot already have an ID"
     },
-    "footer": "This is your footer"
+    "footer": "Saturno 2018 - Final Project UTN FRD"
 }

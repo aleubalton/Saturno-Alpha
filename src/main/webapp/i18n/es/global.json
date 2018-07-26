@@ -1,7 +1,7 @@
 {
     "global": {
-        "title": "Jhipster",
-        "browsehappy": "Está usando un navegador <strong>no actualizado</strong>. Por favor, <a href=\"http://browsehappy.com/?locale=en\">actualice su navegador</a> para mejorar su experiencia.",
+        "title": "Saturno",
+        "browsehappy": "Estas utilizando un navegador <strong>desactualizado</strong>. Por favor <a href=\"http://browsehappy.com/?locale=es\">actualiza tu navegador</a> para mejorar la experiencia Saturno.",
         "menu": {
             "home": "Inicio",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
@@ -11,122 +11,124 @@
             },
             "account": {
                 "main": "Cuenta",
-                "settings": "Ajustes",
+                "settings": "Mi cuenta",
                 "password": "Contraseña",
                 "sessions": "Sesiones",
-                "login": "Iniciar sesión",
-                "logout": "Cerrar la sesión",
-                "register": "Crear una cuenta"
+                "login": "Ingresar",
+                "logout": "Salir",
+                "register": "Registrate"
             },
             "admin": {
                 "main": "Administración",
-                "userManagement": "Gestión de usuarios",
-                "tracker": "Registro de los usuarios",
+                "userManagement": "Gestionar Usuarios",
+                "tracker": "User tracker",
                 "metrics": "Métricas",
                 "health": "Salud",
                 "configuration": "Configuración",
                 "logs": "Logs",
-                "audits": "Auditorías",
+                "audits": "Auditoría",
                 "apidocs": "API",
-                "database": "Base de datos",
+                "database": "Base de Datos",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
             "language": "Idioma"
         },
         "form": {
             "username": "Usuario",
-            "username.placeholder": "Nombre de usuario",
+            "username.placeholder": "Ingresa tu nombre de usuario",
             "newpassword": "Nueva contraseña",
-            "newpassword.placeholder": "Nueva contraseña",
-            "confirmpassword": "Confirmación de la nueva contraseña",
-            "confirmpassword.placeholder": "Confirmación de la nueva contraseña",
+            "newpassword.placeholder": "Ingresa tu contraseña preferida",
+            "confirmpassword": "Confirmar nueva contraseña",
+            "confirmpassword.placeholder": "Ingresa nuevamente la contraseña",
             "email": "Correo electrónico",
-            "email.placeholder": "Su correo electrónico"
+            "email.placeholder": "Ingresa tu correo electrónico"
         },
         "messages": {
             "info": {
                 "authenticated": {
-                    "prefix": "Si desea ",
-                    "link": "iniciar una sesión",
-                    "suffix": ", puede intentar con las cuentas predeterminadas:<br/>- Administrator (usuario=\"admin\" y contraseña=\"admin\") <br/>- Usuario (usuario=\"user\" y contraseña=\"user\")."
+                    "prefix": "Si ya tienes un usuario puedes ",
+                    "link": "ingresar",
+                    "suffix": " aquí."
                 },
                 "register": {
-                    "noaccount": "¿No tienes una cuenta todavía?",
-                    "link": "Crea una cuenta"
+                    "noaccount": "¿Todavía no tienes una cuenta?",
+                    "link": "¡Registrate!"
                 }
             },
             "error": {
-                "dontmatch" : "¡La contraseña y la confirmación de contraseña no coinciden!"
+                "dontmatch": "Las contraseñas ingresadas no coinciden!"
             },
             "validate": {
                 "newpassword": {
-                    "required": "Se requiere que ingrese una contraseña.",
-                    "minlength": "Se requiere que su contraseña tenga por lo menos 5 caracteres",
-                    "maxlength": "Su contraseña no puede tener más de 50 caracteres",
-                    "strength": "Seguridad de la contraseña:"
+                    "required": "Se requiere contraseña.",
+                    "minlength": "La contraseña debe tener al menos 4 caracteres.",
+                    "maxlength": "La contraseña no puede tener mas de 50 caracteres.",
+                    "strength": "Fortaleza:"
                 },
                 "confirmpassword": {
-                    "required": "Se requiere que confirme la contraseña.",
-                    "minlength": "Se requiere que su contraseña de confirmación tenga por lo menos 5 caracteres",
-                    "maxlength": "Su contraseña de confirmación no puede tener más de 50 caracteres"
+                    "required": "Se requiere confirmación de password.",
+                    "minlength": "La contraseña debe tener al menos 4 caracteres.",
+                    "maxlength": "La contraseña no puede tener mas de 50 caracteres."
                 },
                 "email": {
-                    "required": "Se requiere un correo electrónico.",
-                    "invalid": "Su correo electrónico no es válido.",
-                    "minlength": "Se requiere que su correo electrónico tenga por lo menos 5 caracteres",
-                    "maxlength": "Su correo electrónico no puede tener más de 50 caracteres"
+                    "required": "Se requiere correo electrónico.",
+                    "invalid": "Correo electrónico inválido.",
+                    "minlength": "La dirección de correo debe tener al menos 5 caracteres.",
+                    "maxlength": "La dirección de correo no puede superar los 50 caracteres."
                 }
             }
         },
         "field": {
-            "id" : "ID"
+            "id": "ID"
         },
         "ribbon": {
-            "dev":"Development"
+            "dev":"DESARROLLO"
         },
-        "item-count": "Monstrando {{first}} - {{second}} de {{total}} artículos."
+        "item-count": "Mostrando {{first}} - {{second}} de {{total}} elementos."
     },
     "entity": {
         "action": {
-            "addblob": "Añadir fichero",
-            "addimage": "Añadir imagen",
+            "addblob": "Agregar blob",
+            "addimage": "Agregar imagen",
             "back": "Volver",
             "cancel": "Cancelar",
             "delete": "Eliminar",
             "edit": "Editar",
-            "open": "Open",
+            "open": "Abrir",
             "save": "Guardar",
-            "view": "Vista"
+            "view": "Ver"
         },
         "detail": {
             "field": "Campo",
             "value": "Valor"
         },
         "delete": {
-            "title": "Confirmar operación de borrado"
+            "title": "Confirmar eliminación"
         },
         "validation": {
-            "required": "Este campo es obligatorio.",
-            "minlength": "Este campo requiere al menos {{min}} caracteres.",
-            "maxlength": "Este campo no puede superar más de {{max}} caracteres.",
-            "min": "Este campo debe ser mayor que {{min}}.",
-            "max": "Este campo no puede ser mayor que {{max}}.",
-            "minbytes": "Este campo debe tener como mínimo {{min}} bytes.",
-            "maxbytes": "Este campo no puede tener más de {{max}} bytes.",
-            "pattern": "Este campo debe seguir el patrón {{pattern}}.",
-            "number": "Este campo debe ser un número.",
-            "datetimelocal": "Este campo debe ser una fecha y hora."
+            "required": "Campo requerido.",
+            "minlength": "Debe poseer al menos {{ min }} caracteres.",
+            "maxlength": "No puede tener más de {{ max }} caracteres.",
+            "min": "Debe ser mayor a {{ min }}.",
+            "max": "Debe ser menor a {{ max }}.",
+            "minbytes": "Debe poseer al menos {{ min }} bytes.",
+            "maxbytes": "No puede tener más de {{ max }} bytes.",
+            "pattern": "Debe cumplir con el patrón {{ pattern }}.",
+            "number": "Debe ingresarse solamente números.",
+            "datetimelocal": "Debe ingresarse fecha.",
+            "patternLogin": "Este campo puede contener solamente letras, números y dirección de correo electrónico."
         }
     },
     "error": {
-        "internalServerError": "Internal server error",
+        "internalServerError": "Error del servidor",
         "server.not.reachable": "Servidor no accesible",
-        "url.not.found": "Not found",
-        "NotNull": "¡El campo {{fieldName}} no puede estar vacío!",
-        "Size": "¡El campo {{fieldName}} no cumple con los requisitos de tamaño mínimo/máximo!",
-        "userexists": "Login name already used!",
-        "emailexists": "Email is already in use!",
-        "idexists": "A new {{entityName}} cannot already have an ID"
+        "url.not.found": "No encontrado",
+        "NotNull": "El campo {{ fieldName }} no puede estar vacío!",
+        "Size": "El campo {{ fieldName }} no cumple con los requisitos de tamaño mínimo/máximo!",
+        "userexists": "Usuario en uso!",
+        "emailexists": "Correo electrónico en uso!",
+        "idexists": "Nuevo/a {{ entityName }} no puede poseer ese ID"
     },
-    "footer": "pie de página"
+    "footer": "Saturno 2018 - Proyecto Final UTN FRD"
 }
+
