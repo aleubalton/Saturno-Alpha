@@ -12,7 +12,7 @@
 
 eureka:
     instance:
-        hostname: saturno-app.herokuapp.com
+        hostname: saturno-alpha.herokuapp.com
         non-secure-port: 80
         prefer-ip-address: false
     client:
