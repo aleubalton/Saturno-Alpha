@@ -5,8 +5,14 @@ Main page styles
 
 .footer {
     display: inline-block;
-    width: 2127px;
-    height: 218px;
+    height: 100px;
     background: url("../../../content/images/footer.png") no-repeat center top;
+    background-color: white;
     background-size: contain;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 50px;
+    max-height: 100px;
 }

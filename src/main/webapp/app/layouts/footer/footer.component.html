@@ -1,3 +1,17 @@
 <div class="col-md-12">
-    <span class="footer img-fluid rounded"></span>
+  <span class="footer img-fluid rounded">
+    <div ngbDropdown placement="center" class="nav-item pointer" *ngIf="languages">
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown" *ngIf="languages.length > 1">
+            <span>
+                <i class="fa fa-flag" aria-hidden="true"></i>
+                <span jhiTranslate="global.menu.language">Language</span>
+            </span>
+        </a>
+        <ul class="dropdown-menu" ngbDropdownMenu *ngIf="languages.length > 1">
+            <li *ngFor="let language of languages">
+                <a class="dropdown-item" [jhiActiveMenu]="language" href="javascript:void(0);" (click)="changeLanguage(language);collapseNavbar();">{{language | findLanguageFromKey}}</a>
+            </li>
+        </ul>
+    </div>
+  </span>
 </div>
