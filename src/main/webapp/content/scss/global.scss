@@ -48,6 +48,7 @@ Generic styles
     margin-top: 20px;
     margin-bottom: 120px;
     border: none;
+    opacity: 0.9
 }
 
 .error {
@@ -219,3 +220,10 @@ ui bootstrap tweaks
  }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+
+.wallpaper {
+  background-image: url(https://i0.wp.com/www.astrologasilviarioja.com/wp-content/uploads/2017/04/Saturno-Retr%C3%B3grado-Astr%C3%B3loga-Silvia-Rioja-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
