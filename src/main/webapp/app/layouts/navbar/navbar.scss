@@ -16,7 +16,7 @@ Navbar
         border-radius: 50%;
     }
     .dropdown-item.active, .dropdown-item.active:focus, .dropdown-item.active:hover {
-        background-color: darken(#4f81bd, 10%);;
+        background-color: #4f81bd;
     }
     .dropdown-toggle::after {
         margin-left: 0.15em;
@@ -64,7 +64,7 @@ Logo styles
     &.logo {
         padding: 5px 15px;
         .logo-img {
-            height: 45px;
+            height: 70px;
             width: 70px;
             display: inline-block;
             vertical-align: middle;
