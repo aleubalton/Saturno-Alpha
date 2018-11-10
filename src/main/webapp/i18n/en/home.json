@@ -1,19 +1,17 @@
 {
     "home": {
         "title": "Welcome to Saturno!",
-        "subtitle": "This is your homepage",
+        "subtitle": "This is the homepage",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },
-        "question": "If you have any question:",
+        "question": "Important links:",
         "link": {
-            "homepage": "homepage",
-            "stackoverflow": "Stack Overflow",
-            "bugtracker": "bug tracker",
-            "chat": "public chat room",
-            "follow": "follow on Twitter"
+            "homepage": "Saturno homepage",
+            "github": "Github",
+            "deploy": "Heroku deploy"
         },
-        "like": "If you like us, don't forget to give us a star on",
+        "like": "The repository is located on",
         "github": "GitHub"
     }
 }
