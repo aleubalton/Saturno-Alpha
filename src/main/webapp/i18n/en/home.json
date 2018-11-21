@@ -1,7 +1,7 @@
 {
     "home": {
         "title": "Welcome to Saturno!",
-        "subtitle": "This is the homepage",
+        "subtitle": "Please sign in",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },

@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { JhipsterSharedModule } from '../shared';
 
-import { HOME_ROUTE, HomeComponent } from './';
+import { HOME_ROUTE, HomeComponent, LoginService} from './';
 
 @NgModule({
     imports: [
@@ -16,6 +16,7 @@ import { HOME_ROUTE, HomeComponent } from './';
     entryComponents: [
     ],
     providers: [
+        LoginService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
