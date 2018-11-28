@@ -1,19 +1,17 @@
 {
     "home": {
-        "title": "Welcome to Saturno",
-        "subtitle": "Appointment Scheduling Software",
+        "title": "Welcome to Saturno!",
+        "subtitle": "Please sign in",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },
-        "question": "If you have any question or want to contact us:",
+        "question": "Important links:",
         "link": {
-            "homepage": "Homepage",
-            "stackoverflow": "Stack Overflow",
-            "bugtracker": "Bug tracker",
-            "chat": "Public chat room",
-            "follow": "Follow us on Twitter"
+            "homepage": "Saturno homepage",
+            "github": "Github",
+            "deploy": "Heroku deploy"
         },
-        "like": "Developed on JHipster",
+        "like": "The repository is located on",
         "github": "GitHub"
     }
 }

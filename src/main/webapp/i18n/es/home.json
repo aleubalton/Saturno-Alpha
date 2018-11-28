@@ -1,19 +1,17 @@
 {
     "home": {
-        "title": "Bienvenido a Saturno",
-        "subtitle": "Sistema de autogestión de turnos.",
+        "title": "¡Bienvenido a Saturno!",
+        "subtitle": "Por favor inicie sesión",
         "logged": {
-            "message": "Has iniciado sesión con \"{{username}}\"."
+            "message": "Está conectado como \"{{username}}\"."
         },
-        "question": "Si tienes alguna duda o deseas contactarnos:",
+        "question": "Links importantes:",
         "link": {
-            "homepage": "Homepage",
-            "stackoverflow": "Stack Overflow",
-            "bugtracker": "bug tracker",
-            "chat": "public chat room",
-            "follow": "follow on Twitter"
+            "homepage": "Página de inicio",
+            "github": "Github",
+            "deploy": "Heroku deploy"
         },
-        "like": "Realizado en JHipster.",
+        "like": "El repositorio se encuentra en",
         "github": "GitHub"
     }
 }

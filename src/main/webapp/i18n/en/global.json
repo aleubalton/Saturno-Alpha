@@ -8,7 +8,7 @@
             "entities": {
                 "main": "Entities",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
-             },
+            },
             "account": {
                 "main": "Account",
                 "settings": "Settings",
@@ -46,13 +46,13 @@
         "messages": {
             "info": {
                 "authenticated": {
-                    "prefix": "If you already have an user, ",
+                    "prefix": "If you want to ",
                     "link": "sign in",
-                    "suffix": " for more options."
+                    "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
                 },
                 "register": {
                     "noaccount": "You don't have an account yet?",
-                    "link": "Register a new account!"
+                    "link": "Register a new account"
                 }
             },
             "error": {
@@ -82,7 +82,7 @@
             "id": "ID"
         },
         "ribbon": {
-            "dev":"DEVELOPMENT"
+            "dev":"Development"
         },
         "item-count": "Showing {{first}} - {{second}} of {{total}} items."
     },
@@ -129,5 +129,5 @@
         "emailexists": "Email is already in use!",
         "idexists": "A new {{ entityName }} cannot already have an ID"
     },
-    "footer": "Saturno 2018 - Final Project UTN FRD"
+    "footer": "This is your footer"
 }

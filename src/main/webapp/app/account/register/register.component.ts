@@ -1,10 +1,10 @@
 import { Component, OnInit, AfterViewInit, Renderer, ElementRef } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 import { JhiLanguageService } from 'ng-jhipster';
 
 import { Register } from './register.service';
-import { LoginModalService, EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from '../../shared';
+import { EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from '../../shared';
 
 @Component({
     selector: 'jhi-register',
@@ -19,14 +19,13 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     errorUserExists: string;
     registerAccount: any;
     success: boolean;
-    modalRef: NgbModalRef;
 
     constructor(
         private languageService: JhiLanguageService,
-        private loginModalService: LoginModalService,
         private registerService: Register,
         private elementRef: ElementRef,
-        private renderer: Renderer
+        private renderer: Renderer,
+        private router: Router
     ) {
     }
 
@@ -57,7 +56,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     }
 
     openLogin() {
-        this.modalRef = this.loginModalService.open();
+        this.router.navigate(['/']);
     }
 
     private processError(response: HttpErrorResponse) {
