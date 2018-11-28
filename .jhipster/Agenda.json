@@ -1,0 +1,70 @@
+{
+    "name": "Agenda",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tipoDeRecurso",
+            "fieldType": "TipoRecurso",
+            "fieldValues": "BAHIA,LAVADERO,ASESOR,TECNICO",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fechaDesde",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fechaHasta",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "duracionEvento",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "agenda",
+            "relationshipName": "intervalo",
+            "otherEntityName": "intervalo",
+            "otherEntityField": "fechaHoraDesde",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "agenda",
+            "relationshipName": "diaNoLaborable",
+            "otherEntityName": "diaNoLaborable",
+            "otherEntityField": "dia",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipValidateRules": "required",
+            "relationshipName": "turno",
+            "otherEntityName": "turno",
+            "otherEntityRelationshipName": "agenda"
+        }
+    ],
+    "changelogDate": "20181128020301",
+    "entityTableName": "agenda",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

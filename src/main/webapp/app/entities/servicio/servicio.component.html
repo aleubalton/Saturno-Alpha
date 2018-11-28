@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterApp.servicio.home.title">Servicios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-servicio" [routerLink]="['/servicio/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterApp.servicio.home.createLabel">
+            Create new Servicio
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="servicios">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="jhipsterApp.servicio.nombre">Nombre</span></th>
+            <th><span jhiTranslate="jhipsterApp.servicio.codigo">Codigo</span></th>
+            <th><span jhiTranslate="jhipsterApp.servicio.kilometraje">Kilometraje</span></th>
+            <th><span jhiTranslate="jhipsterApp.servicio.duracion">Duracion</span></th>
+            <th><span jhiTranslate="jhipsterApp.servicio.precio">Precio</span></th>
+            <th><span jhiTranslate="jhipsterApp.servicio.categoria">Categoria</span></th>
+            <th><span jhiTranslate="jhipsterApp.servicio.tipo">Tipo</span></th>
+            <th><span jhiTranslate="jhipsterApp.servicio.tarea">Tarea</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let servicio of servicios ;trackBy: trackId">
+                <td><a [routerLink]="['/servicio', servicio.id, 'view' ]">{{servicio.id}}</a></td>
+                <td>{{servicio.nombre}}</td>
+                <td>{{servicio.codigo}}</td>
+                <td>{{servicio.kilometraje}}</td>
+                <td>{{servicio.duracion}}</td>
+                <td>{{servicio.precio}}</td>
+                <td jhiTranslate="{{'jhipsterApp.Categoria.' + servicio.categoria}}">{{servicio.categoria}}</td>
+                <td>
+                    <div *ngIf="servicio.tipoId">
+                        <a [routerLink]="['../tipo-de-servicio', servicio.tipoId , 'view' ]" >{{servicio.tipoCodigo}}</a>
+                    </div>
+                </td>
+                <td>
+                    <span *ngFor="let tarea of servicio.tareas; let last = last">
+                            <a class="form-control-static" [routerLink]="['../tarea', tarea?.id, 'view' ]">{{tarea.codigo}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/servicio', servicio.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/servicio', servicio.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'servicio/'+ servicio.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

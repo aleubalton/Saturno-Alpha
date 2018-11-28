@@ -1,0 +1,40 @@
+{
+    "name": "Intervalo",
+    "fields": [
+        {
+            "fieldName": "fechaHoraDesde",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "duracion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dia",
+            "fieldType": "Dia",
+            "fieldValues": "LUNES,MARTES,MIERCOLES,JUEVES,VIERNES,SABADO,DOMINGO,TODOS"
+        },
+        {
+            "fieldName": "repite",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "agenda",
+            "otherEntityName": "agenda",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "intervalo"
+        }
+    ],
+    "changelogDate": "20181128020302",
+    "entityTableName": "intervalo",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

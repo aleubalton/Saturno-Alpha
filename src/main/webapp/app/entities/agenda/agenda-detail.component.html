@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="agenda">
+            <h2><span jhiTranslate="jhipsterApp.agenda.detail.title">Agenda</span> {{agenda.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterApp.agenda.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{agenda.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterApp.agenda.tipoDeRecurso">Tipo De Recurso</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterApp.TipoRecurso.' + agenda.tipoDeRecurso}}">{{agenda.tipoDeRecurso}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterApp.agenda.fechaDesde">Fecha Desde</span></dt>
+                <dd>
+                    <span>{{agenda.fechaDesde}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterApp.agenda.fechaHasta">Fecha Hasta</span></dt>
+                <dd>
+                    <span>{{agenda.fechaHasta}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterApp.agenda.duracionEvento">Duracion Evento</span></dt>
+                <dd>
+                    <span>{{agenda.duracionEvento}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterApp.agenda.estado">Estado</span></dt>
+                <dd>
+                    <span>{{agenda.estado}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterApp.agenda.intervalo">Intervalo</span></dt>
+                <dd>
+                    <span *ngFor="let intervalo of agenda.intervalos; let last = last">
+                        <a [routerLink]="['/intervalo', intervalo?.id, 'view' ]">{{intervalo.fechaHoraDesde}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterApp.agenda.diaNoLaborable">Dia No Laborable</span></dt>
+                <dd>
+                    <span *ngFor="let diaNoLaborable of agenda.diaNoLaborables; let last = last">
+                        <a [routerLink]="['/dia-no-laborable', diaNoLaborable?.id, 'view' ]">{{diaNoLaborable.dia}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/agenda', agenda.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
