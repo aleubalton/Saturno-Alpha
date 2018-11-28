@@ -1,0 +1,111 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAgendaLabel" jhiTranslate="jhipsterApp.agenda.home.createOrEditLabel">Create or edit a Agenda</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!agenda.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="agenda.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.agenda.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                [(ngModel)]="agenda.nombre" required/>
+            <div [hidden]="!(editForm.controls.nombre?.dirty && editForm.controls.nombre?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nombre?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.agenda.tipoDeRecurso" for="field_tipoDeRecurso">Tipo De Recurso</label>
+            <select class="form-control" name="tipoDeRecurso" [(ngModel)]="agenda.tipoDeRecurso" id="field_tipoDeRecurso"  required>
+                <option value="BAHIA">{{'jhipsterApp.TipoRecurso.BAHIA' | translate}}</option>
+                <option value="LAVADERO">{{'jhipsterApp.TipoRecurso.LAVADERO' | translate}}</option>
+                <option value="ASESOR">{{'jhipsterApp.TipoRecurso.ASESOR' | translate}}</option>
+                <option value="TECNICO">{{'jhipsterApp.TipoRecurso.TECNICO' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.tipoDeRecurso?.dirty && editForm.controls.tipoDeRecurso?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.tipoDeRecurso?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.agenda.fechaDesde" for="field_fechaDesde">Fecha Desde</label>
+            <div class="input-group">
+                <input id="field_fechaDesde" type="text" class="form-control" name="fechaDesde" ngbDatepicker  #fechaDesdeDp="ngbDatepicker" [(ngModel)]="agenda.fechaDesde"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="fechaDesdeDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.agenda.fechaHasta" for="field_fechaHasta">Fecha Hasta</label>
+            <div class="input-group">
+                <input id="field_fechaHasta" type="text" class="form-control" name="fechaHasta" ngbDatepicker  #fechaHastaDp="ngbDatepicker" [(ngModel)]="agenda.fechaHasta"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="fechaHastaDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.agenda.duracionEvento" for="field_duracionEvento">Duracion Evento</label>
+            <input type="number" class="form-control" name="duracionEvento" id="field_duracionEvento"
+                [(ngModel)]="agenda.duracionEvento" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.agenda.estado" for="field_estado">Estado</label>
+            <input type="text" class="form-control" name="estado" id="field_estado"
+                [(ngModel)]="agenda.estado" />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="jhipsterApp.agenda.intervalo" for="field_intervalo">Intervalo</label>
+            <select class="form-control" id="field_intervalo" multiple name="intervalo" [(ngModel)]="agenda.intervalos" required>
+                <option [ngValue]="getSelected(agenda.intervalos, intervaloOption)" *ngFor="let intervaloOption of intervalos; trackBy: trackIntervaloById">{{intervaloOption.fechaHoraDesde}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.intervalo?.dirty && editForm.controls.intervalo?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.intervalo?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="jhipsterApp.agenda.diaNoLaborable" for="field_diaNoLaborable">Dia No Laborable</label>
+            <select class="form-control" id="field_diaNoLaborable" multiple name="diaNoLaborable" [(ngModel)]="agenda.diaNoLaborables" required>
+                <option [ngValue]="getSelected(agenda.diaNoLaborables, diaNoLaborableOption)" *ngFor="let diaNoLaborableOption of dianolaborables; trackBy: trackDiaNoLaborableById">{{diaNoLaborableOption.dia}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.diaNoLaborable?.dirty && editForm.controls.diaNoLaborable?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.diaNoLaborable?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div [hidden]="!(editForm.controls.turno?.dirty && editForm.controls.turno?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.turno?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

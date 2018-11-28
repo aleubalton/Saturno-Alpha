@@ -1,0 +1,9 @@
+{
+    "jhipsterApp": {
+        "Marca" : {
+            "null": "",
+            "TOYOTA": "TOYOTA",
+            "LEXUS": "LEXUS"
+        }
+    }
+}

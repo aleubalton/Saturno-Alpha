@@ -1,0 +1,46 @@
+
+<div *ngIf="modelo">
+    <h2><span jhiTranslate="jhipsterApp.modelo.detail.title">Modelo</span> {{modelo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp.modelo.codigo">Codigo</span></dt>
+        <dd>
+            <span>{{modelo.codigo}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.modelo.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{modelo.nombre}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.modelo.marca">Marca</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterApp.Marca.' + modelo.marca}}">{{modelo.marca}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.modelo.categoria">Categoria</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterApp.Categoria.' + modelo.categoria}}">{{modelo.categoria}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.modelo.anioInicioProduccion">Anio Inicio Produccion</span></dt>
+        <dd>
+            <span>{{modelo.anioInicioProduccion}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.modelo.aniofinProduccion">Aniofin Produccion</span></dt>
+        <dd>
+            <span>{{modelo.aniofinProduccion}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'modelo/'+ modelo.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterApp.tipoDeServicio.home.title">Tipo De Servicios</span>
+        <button class="btn btn-primary float-right jh-create-entity create-tipo-de-servicio" [routerLink]="['/', { outlets: { popup: ['tipo-de-servicio-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterApp.tipoDeServicio.home.createLabel">
+            Create new Tipo De Servicio
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="tipoDeServicios">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="jhipsterApp.tipoDeServicio.nombre">Nombre</span></th>
+            <th><span jhiTranslate="jhipsterApp.tipoDeServicio.codigo">Codigo</span></th>
+            <th><span jhiTranslate="jhipsterApp.tipoDeServicio.interno">Interno</span></th>
+            <th><span jhiTranslate="jhipsterApp.tipoDeServicio.tipoDeRecurso">Tipo De Recurso</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tipoDeServicio of tipoDeServicios ;trackBy: trackId">
+                <td><a [routerLink]="['../tipo-de-servicio', tipoDeServicio.id ]">{{tipoDeServicio.id}}</a></td>
+                <td>{{tipoDeServicio.nombre}}</td>
+                <td>{{tipoDeServicio.codigo}}</td>
+                <td>{{tipoDeServicio.interno}}</td>
+                <td jhiTranslate="{{'jhipsterApp.TipoRecurso.' + tipoDeServicio.tipoDeRecurso}}">{{tipoDeServicio.tipoDeRecurso}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../tipo-de-servicio', tipoDeServicio.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tipo-de-servicio/'+ tipoDeServicio.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tipo-de-servicio/'+ tipoDeServicio.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

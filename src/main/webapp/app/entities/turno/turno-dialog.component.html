@@ -1,0 +1,110 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTurnoLabel" jhiTranslate="jhipsterApp.turno.home.createOrEditLabel">Create or edit a Turno</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!turno.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="turno.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.turno.fechaHora" for="field_fechaHora">Fecha Hora</label>
+            <div class="d-flex">
+                <input id="field_fechaHora" type="datetime-local" class="form-control" name="fechaHora" [(ngModel)]="turno.fechaHora"
+                required/>
+            </div>
+            <div [hidden]="!(editForm.controls.fechaHora?.dirty && editForm.controls.fechaHora?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fechaHora?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.fechaHora?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.turno.estado" for="field_estado">Estado</label>
+            <select class="form-control" name="estado" [(ngModel)]="turno.estado" id="field_estado"  required>
+                <option value="RESERVADO">{{'jhipsterApp.Estado.RESERVADO' | translate}}</option>
+                <option value="EXPIRADO">{{'jhipsterApp.Estado.EXPIRADO' | translate}}</option>
+                <option value="VALIDADO">{{'jhipsterApp.Estado.VALIDADO' | translate}}</option>
+                <option value="CONFIRMADO">{{'jhipsterApp.Estado.CONFIRMADO' | translate}}</option>
+                <option value="CANCELADO">{{'jhipsterApp.Estado.CANCELADO' | translate}}</option>
+                <option value="FINALIZADO">{{'jhipsterApp.Estado.FINALIZADO' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.estado?.dirty && editForm.controls.estado?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.estado?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.turno.agenda" for="field_agenda">Agenda</label>
+            <select class="form-control" id="field_agenda" name="agenda" [(ngModel)]="turno.agendaId"  required>
+                <option *ngIf="!editForm.value.agenda" [ngValue]="null" selected></option>
+                <option [ngValue]="agendaOption.id" *ngFor="let agendaOption of agenda; trackBy: trackAgendaById">{{agendaOption.nombre}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.agenda?.dirty && editForm.controls.agenda?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.agenda?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="jhipsterApp.turno.servicio" for="field_servicio">Servicio</label>
+            <select class="form-control" id="field_servicio" multiple name="servicio" [(ngModel)]="turno.servicios" required>
+                <option [ngValue]="getSelected(turno.servicios, servicioOption)" *ngFor="let servicioOption of servicios; trackBy: trackServicioById">{{servicioOption.codigo}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.servicio?.dirty && editForm.controls.servicio?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.servicio?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.turno.cliente" for="field_cliente">Cliente</label>
+            <select class="form-control" id="field_cliente" name="cliente" [(ngModel)]="turno.clienteId"  required>
+                <option *ngIf="!editForm.value.cliente" [ngValue]="null" selected></option>
+                <option [ngValue]="clienteOption.id" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.apellido}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.cliente?.dirty && editForm.controls.cliente?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.cliente?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.turno.vehiculo" for="field_vehiculo">Vehiculo</label>
+            <select class="form-control" id="field_vehiculo" name="vehiculo" [(ngModel)]="turno.vehiculoId"  required>
+                <option *ngIf="!editForm.value.vehiculo" [ngValue]="null" selected></option>
+                <option [ngValue]="vehiculoOption.id" *ngFor="let vehiculoOption of vehiculos; trackBy: trackVehiculoById">{{vehiculoOption.patente}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.vehiculo?.dirty && editForm.controls.vehiculo?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.vehiculo?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

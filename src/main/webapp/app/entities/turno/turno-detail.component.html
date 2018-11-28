@@ -1,0 +1,54 @@
+
+<div *ngIf="turno">
+    <h2><span jhiTranslate="jhipsterApp.turno.detail.title">Turno</span> {{turno.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp.turno.fechaHora">Fecha Hora</span></dt>
+        <dd>
+            <span>{{turno.fechaHora | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.turno.estado">Estado</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterApp.Estado.' + turno.estado}}">{{turno.estado}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.turno.agenda">Agenda</span></dt>
+        <dd>
+            <div *ngIf="turno.agendaId">
+                <a [routerLink]="['/agenda', turno.agendaId]">{{turno.agendaNombre}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.turno.servicio">Servicio</span></dt>
+        <dd>
+            <span *ngFor="let servicio of turno.servicios; let last = last">
+                <a [routerLink]="['/servicio', servicio?.id ]">{{servicio.codigo}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.turno.cliente">Cliente</span></dt>
+        <dd>
+            <div *ngIf="turno.clienteId">
+                <a [routerLink]="['/cliente', turno.clienteId]">{{turno.clienteApellido}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.turno.vehiculo">Vehiculo</span></dt>
+        <dd>
+            <div *ngIf="turno.vehiculoId">
+                <a [routerLink]="['/vehiculo', turno.vehiculoId]">{{turno.vehiculoPatente}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'turno/'+ turno.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
