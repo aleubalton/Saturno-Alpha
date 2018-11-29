@@ -1,0 +1,40 @@
+
+<div *ngIf="vehiculo">
+    <h2><span jhiTranslate="jhipsterApp.vehiculo.detail.title">Vehiculo</span> {{vehiculo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp.vehiculo.patente">Patente</span></dt>
+        <dd>
+            <span>{{vehiculo.patente}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.vehiculo.anio">Anio</span></dt>
+        <dd>
+            <span>{{vehiculo.anio}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.vehiculo.kilometraje">Kilometraje</span></dt>
+        <dd>
+            <span>{{vehiculo.kilometraje}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.vehiculo.modelo">Modelo</span></dt>
+        <dd>
+            <div *ngIf="vehiculo.modeloId">
+                <a [routerLink]="['/modelo', vehiculo.modeloId]">{{vehiculo.modeloNombre}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'vehiculo/'+ vehiculo.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

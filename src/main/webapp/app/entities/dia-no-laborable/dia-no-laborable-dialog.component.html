@@ -1,0 +1,53 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDiaNoLaborableLabel" jhiTranslate="jhipsterApp.diaNoLaborable.home.createOrEditLabel">Create or edit a Dia No Laborable</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!diaNoLaborable.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="diaNoLaborable.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.diaNoLaborable.fecha" for="field_fecha">Fecha</label>
+            <div class="input-group">
+                <input id="field_fecha" type="text" class="form-control" name="fecha" ngbDatepicker  #fechaDp="ngbDatepicker" [(ngModel)]="diaNoLaborable.fecha"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="fechaDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.diaNoLaborable.dia" for="field_dia">Dia</label>
+            <select class="form-control" name="dia" [(ngModel)]="diaNoLaborable.dia" id="field_dia" >
+                <option value="LUNES">{{'jhipsterApp.Dia.LUNES' | translate}}</option>
+                <option value="MARTES">{{'jhipsterApp.Dia.MARTES' | translate}}</option>
+                <option value="MIERCOLES">{{'jhipsterApp.Dia.MIERCOLES' | translate}}</option>
+                <option value="JUEVES">{{'jhipsterApp.Dia.JUEVES' | translate}}</option>
+                <option value="VIERNES">{{'jhipsterApp.Dia.VIERNES' | translate}}</option>
+                <option value="SABADO">{{'jhipsterApp.Dia.SABADO' | translate}}</option>
+                <option value="DOMINGO">{{'jhipsterApp.Dia.DOMINGO' | translate}}</option>
+                <option value="TODOS">{{'jhipsterApp.Dia.TODOS' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.diaNoLaborable.repite" for="field_repite">Repite</label>
+            <input type="checkbox" class="form-control" name="repite" id="field_repite"
+                [(ngModel)]="diaNoLaborable.repite" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

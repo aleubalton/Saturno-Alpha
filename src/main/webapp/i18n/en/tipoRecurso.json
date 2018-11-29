@@ -1,0 +1,11 @@
+{
+    "jhipsterApp": {
+        "TipoRecurso" : {
+            "null": "",
+            "BAHIA": "BAHIA",
+            "LAVADERO": "LAVADERO",
+            "ASESOR": "ASESOR",
+            "TECNICO": "TECNICO"
+        }
+    }
+}

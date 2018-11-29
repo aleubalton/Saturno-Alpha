@@ -1,0 +1,55 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myIntervaloLabel" jhiTranslate="jhipsterApp.intervalo.home.createOrEditLabel">Create or edit a Intervalo</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!intervalo.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="intervalo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.intervalo.fechaHoraDesde" for="field_fechaHoraDesde">Fecha Hora Desde</label>
+            <div class="d-flex">
+                <input id="field_fechaHoraDesde" type="datetime-local" class="form-control" name="fechaHoraDesde" [(ngModel)]="intervalo.fechaHoraDesde"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.intervalo.duracion" for="field_duracion">Duracion</label>
+            <input type="number" class="form-control" name="duracion" id="field_duracion"
+                [(ngModel)]="intervalo.duracion" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.intervalo.dia" for="field_dia">Dia</label>
+            <select class="form-control" name="dia" [(ngModel)]="intervalo.dia" id="field_dia" >
+                <option value="LUNES">{{'jhipsterApp.Dia.LUNES' | translate}}</option>
+                <option value="MARTES">{{'jhipsterApp.Dia.MARTES' | translate}}</option>
+                <option value="MIERCOLES">{{'jhipsterApp.Dia.MIERCOLES' | translate}}</option>
+                <option value="JUEVES">{{'jhipsterApp.Dia.JUEVES' | translate}}</option>
+                <option value="VIERNES">{{'jhipsterApp.Dia.VIERNES' | translate}}</option>
+                <option value="SABADO">{{'jhipsterApp.Dia.SABADO' | translate}}</option>
+                <option value="DOMINGO">{{'jhipsterApp.Dia.DOMINGO' | translate}}</option>
+                <option value="TODOS">{{'jhipsterApp.Dia.TODOS' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.intervalo.repite" for="field_repite">Repite</label>
+            <input type="checkbox" class="form-control" name="repite" id="field_repite"
+                [(ngModel)]="intervalo.repite" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,76 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterApp.modelo.home.title">Modelos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-modelo" [routerLink]="['/', { outlets: { popup: ['modelo-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterApp.modelo.home.createLabel">
+            Create new Modelo
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="modelos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="codigo"><span jhiTranslate="jhipsterApp.modelo.codigo">Codigo</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="jhipsterApp.modelo.nombre">Nombre</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="anioInicioProduccion"><span jhiTranslate="jhipsterApp.modelo.anioInicioProduccion">Anio Inicio Produccion</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="anioFinProduccion"><span jhiTranslate="jhipsterApp.modelo.anioFinProduccion">Anio Fin Produccion</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="marca"><span jhiTranslate="jhipsterApp.modelo.marca">Marca</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="categoria"><span jhiTranslate="jhipsterApp.modelo.categoria">Categoria</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let modelo of modelos ;trackBy: trackId">
+                <td><a [routerLink]="['../modelo', modelo.id ]">{{modelo.id}}</a></td>
+                <td>{{modelo.codigo}}</td>
+                <td>{{modelo.nombre}}</td>
+                <td>{{modelo.anioInicioProduccion}}</td>
+                <td>{{modelo.anioFinProduccion}}</td>
+                <td jhiTranslate="{{'jhipsterApp.Marca.' + modelo.marca}}">{{modelo.marca}}</td>
+                <td jhiTranslate="{{'jhipsterApp.Categoria.' + modelo.categoria}}">{{modelo.categoria}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../modelo', modelo.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'modelo/'+ modelo.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'modelo/'+ modelo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="modelos && modelos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{
+    "jhipsterApp": {
+        "TipoTarea" : {
+            "null": "",
+            "CAMBIO": "CAMBIO",
+            "INSPECCION": "INSPECCION"
+        }
+    }
+}
