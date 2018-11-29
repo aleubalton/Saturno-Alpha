@@ -46,11 +46,13 @@ Generic styles
 .jh-card {
     padding: 50px;
     margin-top: 20px;
-    margin-bottom: 150px;
+    margin-bottom: 70px;
+    border-radius: 2rem;
     border: none;
     opacity: 0.9;
     animation-name: slideInDown;
     animation-duration: 1s;
+    box-shadow: black 0px 0px 20px 5px;
 }
 
 .error {
