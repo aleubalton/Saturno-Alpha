@@ -48,7 +48,9 @@ Generic styles
     margin-top: 20px;
     margin-bottom: 150px;
     border: none;
-    opacity: 0.9
+    opacity: 0.9;
+    animation-name: slideInDown;
+    animation-duration: 1s;
 }
 
 .error {
