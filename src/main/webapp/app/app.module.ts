@@ -17,6 +17,7 @@ import { JhipsterAdminModule } from './admin/admin.module';
 import { JhipsterAccountModule } from './account/account.module';
 import { JhipsterEntityModule } from './entities/entity.module';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
+import { SolicitudModule } from './solicitud/solicitud.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import {
     JhiMainComponent,
@@ -38,6 +39,7 @@ import {
         JhipsterAdminModule,
         JhipsterAccountModule,
         JhipsterEntityModule,
+        SolicitudModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
